@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9b19fdb9e58b4c5caac2e5d344873c96" Name="Diagram1">
+        <EntityTypeShape EntityType="HGUModel.Categorys" Width="1.5" PointX="5.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGUModel.Computers" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGUModel.Cpu" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGUModel.DataDrives" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGUModel.GraphicManufacturer" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGUModel.GraphicsAccelerator" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGUModel.Ram" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGUModel.RamType" Width="1.5" PointX="0.75" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGUModel.Role" Width="1.5" PointX="9.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGUModel.Specification" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGUModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGUModel.Type_Device" Width="1.5" PointX="8" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGUModel.TypeDataDrives" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGUModel.TypeOfGraphicsAccelerator" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGUModel.TypeVideoMemory" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGUModel.Users" Width="1.5" PointX="12" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HGUModel.Сonsumable" Width="1.5" PointX="8" PointY="8.625" IsExpanded="true" />
+        <AssociationConnector Association="HGUModel.FK_Type_Device_Categorys" ManuallyRouted="false" />
+        <AssociationConnector Association="HGUModel.FK_Сonsumable_Categorys" ManuallyRouted="false" />
+        <AssociationConnector Association="HGUModel.FK_Computers_Specification" ManuallyRouted="false" />
+        <AssociationConnector Association="HGUModel.FK_Specification_Cpu" ManuallyRouted="false" />
+        <AssociationConnector Association="HGUModel.FK_DataDrives_TypeDataDrives" ManuallyRouted="false" />
+        <AssociationConnector Association="HGUModel.FK_Specification_DataDrives" ManuallyRouted="false" />
+        <AssociationConnector Association="HGUModel.FK_GraphicsAccelerator_GraphicManufacturer" ManuallyRouted="false" />
+        <AssociationConnector Association="HGUModel.FK_GraphicsAccelerator_TypeOfGraphicsAccelerator" ManuallyRouted="false" />
+        <AssociationConnector Association="HGUModel.FK_GraphicsAccelerator_TypeVideoMemory" ManuallyRouted="false" />
+        <AssociationConnector Association="HGUModel.FK_Specification_GraphicsAccelerator" ManuallyRouted="false" />
+        <AssociationConnector Association="HGUModel.FK_Ram_RamType" ManuallyRouted="false" />
+        <AssociationConnector Association="HGUModel.FK_Specification_Ram" ManuallyRouted="false" />
+        <AssociationConnector Association="HGUModel.FK_Users_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

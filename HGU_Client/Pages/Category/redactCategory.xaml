@@ -1,0 +1,21 @@
+﻿<Page x:Class="HGU_Client.Pages.Category.redactCategory"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HGU_Client.Pages.Category"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="redactCategory">
+
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Выбранный элемент"  />
+            <TextBlock Text="Модель" />
+            <TextBox Name="txt_model"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btn_Save" Content="Сохранить" Margin="0,5,5,5" Click="btn_Save_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

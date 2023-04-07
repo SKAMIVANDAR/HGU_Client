@@ -1,0 +1,1097 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище HGUModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categorys">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Computers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_Specification" Type="int" Nullable="false" />
+          <Property Name="Count" Type="int" />
+          <Property Name="Office" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cpu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NumberOfCores" Type="int" Nullable="false" />
+          <Property Name="CPUFrequency" Type="float" Nullable="false" />
+          <Property Name="Count" Type="int" />
+        </EntityType>
+        <EntityType Name="DataDrives">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_TypeDataDrives" Type="int" Nullable="false" />
+          <Property Name="VDataDrives" Type="float" Nullable="false" />
+          <Property Name="Count" Type="int" />
+        </EntityType>
+        <EntityType Name="GraphicManufacturer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GraphicsAccelerator">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_GraphicManufacturer" Type="int" Nullable="false" />
+          <Property Name="id_TypeOfGraphicsAccelerator" Type="int" Nullable="false" />
+          <Property Name="id_TypeVideoMemory" Type="int" Nullable="false" />
+          <Property Name="VideoMemorySize" Type="float" Nullable="false" />
+          <Property Name="Count" Type="int" />
+        </EntityType>
+        <EntityType Name="Ram">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_RamType" Type="int" Nullable="false" />
+          <Property Name="VRam" Type="int" Nullable="false" />
+          <Property Name="RAMFrequency" Type="float" Nullable="false" />
+          <Property Name="Count" Type="int" />
+        </EntityType>
+        <EntityType Name="RamType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Specification">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_Cpu" Type="int" Nullable="false" />
+          <Property Name="id_Ram" Type="int" Nullable="false" />
+          <Property Name="id_GraphicsAccelerator" Type="int" Nullable="false" />
+          <Property Name="id_DataDrives" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Type_Device">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_Category" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeDataDrives">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeOfGraphicsAccelerator">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeVideoMemory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_Role" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Сonsumable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="Money" Type="int" Nullable="false" />
+          <Property Name="DateBay" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="note" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_Category" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Computers_Specification">
+          <End Role="Specification" Type="Self.Specification" Multiplicity="1" />
+          <End Role="Computers" Type="Self.Computers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specification">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Computers">
+              <PropertyRef Name="id_Specification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataDrives_TypeDataDrives">
+          <End Role="TypeDataDrives" Type="Self.TypeDataDrives" Multiplicity="1" />
+          <End Role="DataDrives" Type="Self.DataDrives" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeDataDrives">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DataDrives">
+              <PropertyRef Name="id_TypeDataDrives" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GraphicsAccelerator_GraphicManufacturer">
+          <End Role="GraphicManufacturer" Type="Self.GraphicManufacturer" Multiplicity="1" />
+          <End Role="GraphicsAccelerator" Type="Self.GraphicsAccelerator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GraphicManufacturer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GraphicsAccelerator">
+              <PropertyRef Name="id_GraphicManufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GraphicsAccelerator_TypeOfGraphicsAccelerator">
+          <End Role="TypeOfGraphicsAccelerator" Type="Self.TypeOfGraphicsAccelerator" Multiplicity="1" />
+          <End Role="GraphicsAccelerator" Type="Self.GraphicsAccelerator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfGraphicsAccelerator">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GraphicsAccelerator">
+              <PropertyRef Name="id_TypeOfGraphicsAccelerator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GraphicsAccelerator_TypeVideoMemory">
+          <End Role="TypeVideoMemory" Type="Self.TypeVideoMemory" Multiplicity="1" />
+          <End Role="GraphicsAccelerator" Type="Self.GraphicsAccelerator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeVideoMemory">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GraphicsAccelerator">
+              <PropertyRef Name="id_TypeVideoMemory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ram_RamType">
+          <End Role="RamType" Type="Self.RamType" Multiplicity="1" />
+          <End Role="Ram" Type="Self.Ram" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RamType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ram">
+              <PropertyRef Name="id_RamType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Specification_Cpu">
+          <End Role="Cpu" Type="Self.Cpu" Multiplicity="1" />
+          <End Role="Specification" Type="Self.Specification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cpu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Specification">
+              <PropertyRef Name="id_Cpu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Specification_DataDrives">
+          <End Role="DataDrives" Type="Self.DataDrives" Multiplicity="1" />
+          <End Role="Specification" Type="Self.Specification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DataDrives">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Specification">
+              <PropertyRef Name="id_DataDrives" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Specification_GraphicsAccelerator">
+          <End Role="GraphicsAccelerator" Type="Self.GraphicsAccelerator" Multiplicity="1" />
+          <End Role="Specification" Type="Self.Specification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GraphicsAccelerator">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Specification">
+              <PropertyRef Name="id_GraphicsAccelerator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Specification_Ram">
+          <End Role="Ram" Type="Self.Ram" Multiplicity="1" />
+          <End Role="Specification" Type="Self.Specification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ram">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Specification">
+              <PropertyRef Name="id_Ram" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Type_Device_Categorys">
+          <End Role="Categorys" Type="Self.Categorys" Multiplicity="1" />
+          <End Role="Type_Device" Type="Self.Type_Device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorys">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Type_Device">
+              <PropertyRef Name="id_Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="id_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Сonsumable_Categorys">
+          <End Role="Categorys" Type="Self.Categorys" Multiplicity="1" />
+          <End Role="Сonsumable" Type="Self.Сonsumable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorys">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Сonsumable">
+              <PropertyRef Name="id_Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="Хранилище HGUModelContainer">
+          <EntitySet Name="Categorys" EntityType="Self.Categorys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Computers" EntityType="Self.Computers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cpu" EntityType="Self.Cpu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DataDrives" EntityType="Self.DataDrives" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GraphicManufacturer" EntityType="Self.GraphicManufacturer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GraphicsAccelerator" EntityType="Self.GraphicsAccelerator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ram" EntityType="Self.Ram" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RamType" EntityType="Self.RamType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Specification" EntityType="Self.Specification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Type_Device" EntityType="Self.Type_Device" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeDataDrives" EntityType="Self.TypeDataDrives" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeOfGraphicsAccelerator" EntityType="Self.TypeOfGraphicsAccelerator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeVideoMemory" EntityType="Self.TypeVideoMemory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Сonsumable" EntityType="Self.Сonsumable" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Computers_Specification" Association="Self.FK_Computers_Specification">
+            <End Role="Specification" EntitySet="Specification" />
+            <End Role="Computers" EntitySet="Computers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataDrives_TypeDataDrives" Association="Self.FK_DataDrives_TypeDataDrives">
+            <End Role="TypeDataDrives" EntitySet="TypeDataDrives" />
+            <End Role="DataDrives" EntitySet="DataDrives" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GraphicsAccelerator_GraphicManufacturer" Association="Self.FK_GraphicsAccelerator_GraphicManufacturer">
+            <End Role="GraphicManufacturer" EntitySet="GraphicManufacturer" />
+            <End Role="GraphicsAccelerator" EntitySet="GraphicsAccelerator" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GraphicsAccelerator_TypeOfGraphicsAccelerator" Association="Self.FK_GraphicsAccelerator_TypeOfGraphicsAccelerator">
+            <End Role="TypeOfGraphicsAccelerator" EntitySet="TypeOfGraphicsAccelerator" />
+            <End Role="GraphicsAccelerator" EntitySet="GraphicsAccelerator" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GraphicsAccelerator_TypeVideoMemory" Association="Self.FK_GraphicsAccelerator_TypeVideoMemory">
+            <End Role="TypeVideoMemory" EntitySet="TypeVideoMemory" />
+            <End Role="GraphicsAccelerator" EntitySet="GraphicsAccelerator" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ram_RamType" Association="Self.FK_Ram_RamType">
+            <End Role="RamType" EntitySet="RamType" />
+            <End Role="Ram" EntitySet="Ram" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Specification_Cpu" Association="Self.FK_Specification_Cpu">
+            <End Role="Cpu" EntitySet="Cpu" />
+            <End Role="Specification" EntitySet="Specification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Specification_DataDrives" Association="Self.FK_Specification_DataDrives">
+            <End Role="DataDrives" EntitySet="DataDrives" />
+            <End Role="Specification" EntitySet="Specification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Specification_GraphicsAccelerator" Association="Self.FK_Specification_GraphicsAccelerator">
+            <End Role="GraphicsAccelerator" EntitySet="GraphicsAccelerator" />
+            <End Role="Specification" EntitySet="Specification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Specification_Ram" Association="Self.FK_Specification_Ram">
+            <End Role="Ram" EntitySet="Ram" />
+            <End Role="Specification" EntitySet="Specification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Type_Device_Categorys" Association="Self.FK_Type_Device_Categorys">
+            <End Role="Categorys" EntitySet="Categorys" />
+            <End Role="Type_Device" EntitySet="Type_Device" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Сonsumable_Categorys" Association="Self.FK_Сonsumable_Categorys">
+            <End Role="Categorys" EntitySet="Categorys" />
+            <End Role="Сonsumable" EntitySet="Сonsumable" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HGUModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Categorys">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Type_Device" Relationship="Self.FK_Type_Device_Categorys" FromRole="Categorys" ToRole="Type_Device" />
+          <NavigationProperty Name="Сonsumable" Relationship="Self.FK_Сonsumable_Categorys" FromRole="Categorys" ToRole="Сonsumable" />
+        </EntityType>
+        <EntityType Name="Computers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_Specification" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Int32" />
+          <Property Name="Office" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Specification" Relationship="Self.FK_Computers_Specification" FromRole="Computers" ToRole="Specification" />
+        </EntityType>
+        <EntityType Name="Cpu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumberOfCores" Type="Int32" Nullable="false" />
+          <Property Name="CPUFrequency" Type="Double" Nullable="false" />
+          <Property Name="Count" Type="Int32" />
+          <NavigationProperty Name="Specification" Relationship="Self.FK_Specification_Cpu" FromRole="Cpu" ToRole="Specification" />
+        </EntityType>
+        <EntityType Name="DataDrives">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_TypeDataDrives" Type="Int32" Nullable="false" />
+          <Property Name="VDataDrives" Type="Double" Nullable="false" />
+          <Property Name="Count" Type="Int32" />
+          <NavigationProperty Name="TypeDataDrives" Relationship="Self.FK_DataDrives_TypeDataDrives" FromRole="DataDrives" ToRole="TypeDataDrives" />
+          <NavigationProperty Name="Specification" Relationship="Self.FK_Specification_DataDrives" FromRole="DataDrives" ToRole="Specification" />
+        </EntityType>
+        <EntityType Name="GraphicManufacturer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="GraphicsAccelerator" Relationship="Self.FK_GraphicsAccelerator_GraphicManufacturer" FromRole="GraphicManufacturer" ToRole="GraphicsAccelerator" />
+        </EntityType>
+        <EntityType Name="GraphicsAccelerator">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_GraphicManufacturer" Type="Int32" Nullable="false" />
+          <Property Name="id_TypeOfGraphicsAccelerator" Type="Int32" Nullable="false" />
+          <Property Name="id_TypeVideoMemory" Type="Int32" Nullable="false" />
+          <Property Name="VideoMemorySize" Type="Double" Nullable="false" />
+          <Property Name="Count" Type="Int32" />
+          <NavigationProperty Name="GraphicManufacturer" Relationship="Self.FK_GraphicsAccelerator_GraphicManufacturer" FromRole="GraphicsAccelerator" ToRole="GraphicManufacturer" />
+          <NavigationProperty Name="TypeOfGraphicsAccelerator" Relationship="Self.FK_GraphicsAccelerator_TypeOfGraphicsAccelerator" FromRole="GraphicsAccelerator" ToRole="TypeOfGraphicsAccelerator" />
+          <NavigationProperty Name="TypeVideoMemory" Relationship="Self.FK_GraphicsAccelerator_TypeVideoMemory" FromRole="GraphicsAccelerator" ToRole="TypeVideoMemory" />
+          <NavigationProperty Name="Specification" Relationship="Self.FK_Specification_GraphicsAccelerator" FromRole="GraphicsAccelerator" ToRole="Specification" />
+        </EntityType>
+        <EntityType Name="Ram">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_RamType" Type="Int32" Nullable="false" />
+          <Property Name="VRam" Type="Int32" Nullable="false" />
+          <Property Name="RAMFrequency" Type="Double" Nullable="false" />
+          <Property Name="Count" Type="Int32" />
+          <NavigationProperty Name="RamType" Relationship="Self.FK_Ram_RamType" FromRole="Ram" ToRole="RamType" />
+          <NavigationProperty Name="Specification" Relationship="Self.FK_Specification_Ram" FromRole="Ram" ToRole="Specification" />
+        </EntityType>
+        <EntityType Name="RamType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Ram" Relationship="Self.FK_Ram_RamType" FromRole="RamType" ToRole="Ram" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Role" FromRole="Role" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Specification">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_Cpu" Type="Int32" Nullable="false" />
+          <Property Name="id_Ram" Type="Int32" Nullable="false" />
+          <Property Name="id_GraphicsAccelerator" Type="Int32" Nullable="false" />
+          <Property Name="id_DataDrives" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Computers" Relationship="Self.FK_Computers_Specification" FromRole="Specification" ToRole="Computers" />
+          <NavigationProperty Name="Cpu" Relationship="Self.FK_Specification_Cpu" FromRole="Specification" ToRole="Cpu" />
+          <NavigationProperty Name="DataDrives" Relationship="Self.FK_Specification_DataDrives" FromRole="Specification" ToRole="DataDrives" />
+          <NavigationProperty Name="GraphicsAccelerator" Relationship="Self.FK_Specification_GraphicsAccelerator" FromRole="Specification" ToRole="GraphicsAccelerator" />
+          <NavigationProperty Name="Ram" Relationship="Self.FK_Specification_Ram" FromRole="Specification" ToRole="Ram" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Type_Device">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_Category" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Categorys" Relationship="Self.FK_Type_Device_Categorys" FromRole="Type_Device" ToRole="Categorys" />
+        </EntityType>
+        <EntityType Name="TypeDataDrives">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DataDrives" Relationship="Self.FK_DataDrives_TypeDataDrives" FromRole="TypeDataDrives" ToRole="DataDrives" />
+        </EntityType>
+        <EntityType Name="TypeOfGraphicsAccelerator">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="GraphicsAccelerator" Relationship="Self.FK_GraphicsAccelerator_TypeOfGraphicsAccelerator" FromRole="TypeOfGraphicsAccelerator" ToRole="GraphicsAccelerator" />
+        </EntityType>
+        <EntityType Name="TypeVideoMemory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="GraphicsAccelerator" Relationship="Self.FK_GraphicsAccelerator_TypeVideoMemory" FromRole="TypeVideoMemory" ToRole="GraphicsAccelerator" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_Role" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Users_Role" FromRole="Users" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Сonsumable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="Money" Type="Int32" Nullable="false" />
+          <Property Name="DateBay" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="note" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_Category" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Categorys" Relationship="Self.FK_Сonsumable_Categorys" FromRole="Сonsumable" ToRole="Categorys" />
+        </EntityType>
+        <Association Name="FK_Type_Device_Categorys">
+          <End Role="Categorys" Type="Self.Categorys" Multiplicity="1" />
+          <End Role="Type_Device" Type="Self.Type_Device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorys">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Type_Device">
+              <PropertyRef Name="id_Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Сonsumable_Categorys">
+          <End Role="Categorys" Type="Self.Categorys" Multiplicity="1" />
+          <End Role="Сonsumable" Type="Self.Сonsumable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorys">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Сonsumable">
+              <PropertyRef Name="id_Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Computers_Specification">
+          <End Role="Specification" Type="Self.Specification" Multiplicity="1" />
+          <End Role="Computers" Type="Self.Computers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specification">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Computers">
+              <PropertyRef Name="id_Specification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Specification_Cpu">
+          <End Role="Cpu" Type="Self.Cpu" Multiplicity="1" />
+          <End Role="Specification" Type="Self.Specification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cpu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Specification">
+              <PropertyRef Name="id_Cpu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataDrives_TypeDataDrives">
+          <End Role="TypeDataDrives" Type="Self.TypeDataDrives" Multiplicity="1" />
+          <End Role="DataDrives" Type="Self.DataDrives" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeDataDrives">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DataDrives">
+              <PropertyRef Name="id_TypeDataDrives" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Specification_DataDrives">
+          <End Role="DataDrives" Type="Self.DataDrives" Multiplicity="1" />
+          <End Role="Specification" Type="Self.Specification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DataDrives">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Specification">
+              <PropertyRef Name="id_DataDrives" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GraphicsAccelerator_GraphicManufacturer">
+          <End Role="GraphicManufacturer" Type="Self.GraphicManufacturer" Multiplicity="1" />
+          <End Role="GraphicsAccelerator" Type="Self.GraphicsAccelerator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GraphicManufacturer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GraphicsAccelerator">
+              <PropertyRef Name="id_GraphicManufacturer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GraphicsAccelerator_TypeOfGraphicsAccelerator">
+          <End Role="TypeOfGraphicsAccelerator" Type="Self.TypeOfGraphicsAccelerator" Multiplicity="1" />
+          <End Role="GraphicsAccelerator" Type="Self.GraphicsAccelerator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfGraphicsAccelerator">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GraphicsAccelerator">
+              <PropertyRef Name="id_TypeOfGraphicsAccelerator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GraphicsAccelerator_TypeVideoMemory">
+          <End Role="TypeVideoMemory" Type="Self.TypeVideoMemory" Multiplicity="1" />
+          <End Role="GraphicsAccelerator" Type="Self.GraphicsAccelerator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeVideoMemory">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GraphicsAccelerator">
+              <PropertyRef Name="id_TypeVideoMemory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Specification_GraphicsAccelerator">
+          <End Role="GraphicsAccelerator" Type="Self.GraphicsAccelerator" Multiplicity="1" />
+          <End Role="Specification" Type="Self.Specification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GraphicsAccelerator">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Specification">
+              <PropertyRef Name="id_GraphicsAccelerator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ram_RamType">
+          <End Role="RamType" Type="Self.RamType" Multiplicity="1" />
+          <End Role="Ram" Type="Self.Ram" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RamType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ram">
+              <PropertyRef Name="id_RamType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Specification_Ram">
+          <End Role="Ram" Type="Self.Ram" Multiplicity="1" />
+          <End Role="Specification" Type="Self.Specification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ram">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Specification">
+              <PropertyRef Name="id_Ram" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="id_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HGUEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categorys" EntityType="Self.Categorys" />
+          <EntitySet Name="Computers" EntityType="Self.Computers" />
+          <EntitySet Name="Cpu" EntityType="Self.Cpu" />
+          <EntitySet Name="DataDrives" EntityType="Self.DataDrives" />
+          <EntitySet Name="GraphicManufacturer" EntityType="Self.GraphicManufacturer" />
+          <EntitySet Name="GraphicsAccelerator" EntityType="Self.GraphicsAccelerator" />
+          <EntitySet Name="Ram" EntityType="Self.Ram" />
+          <EntitySet Name="RamType" EntityType="Self.RamType" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="Specification" EntityType="Self.Specification" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Type_Device" EntityType="Self.Type_Device" />
+          <EntitySet Name="TypeDataDrives" EntityType="Self.TypeDataDrives" />
+          <EntitySet Name="TypeOfGraphicsAccelerator" EntityType="Self.TypeOfGraphicsAccelerator" />
+          <EntitySet Name="TypeVideoMemory" EntityType="Self.TypeVideoMemory" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="Сonsumable" EntityType="Self.Сonsumable" />
+          <AssociationSet Name="FK_Type_Device_Categorys" Association="Self.FK_Type_Device_Categorys">
+            <End Role="Categorys" EntitySet="Categorys" />
+            <End Role="Type_Device" EntitySet="Type_Device" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Сonsumable_Categorys" Association="Self.FK_Сonsumable_Categorys">
+            <End Role="Categorys" EntitySet="Categorys" />
+            <End Role="Сonsumable" EntitySet="Сonsumable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Computers_Specification" Association="Self.FK_Computers_Specification">
+            <End Role="Specification" EntitySet="Specification" />
+            <End Role="Computers" EntitySet="Computers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Specification_Cpu" Association="Self.FK_Specification_Cpu">
+            <End Role="Cpu" EntitySet="Cpu" />
+            <End Role="Specification" EntitySet="Specification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataDrives_TypeDataDrives" Association="Self.FK_DataDrives_TypeDataDrives">
+            <End Role="TypeDataDrives" EntitySet="TypeDataDrives" />
+            <End Role="DataDrives" EntitySet="DataDrives" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Specification_DataDrives" Association="Self.FK_Specification_DataDrives">
+            <End Role="DataDrives" EntitySet="DataDrives" />
+            <End Role="Specification" EntitySet="Specification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GraphicsAccelerator_GraphicManufacturer" Association="Self.FK_GraphicsAccelerator_GraphicManufacturer">
+            <End Role="GraphicManufacturer" EntitySet="GraphicManufacturer" />
+            <End Role="GraphicsAccelerator" EntitySet="GraphicsAccelerator" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GraphicsAccelerator_TypeOfGraphicsAccelerator" Association="Self.FK_GraphicsAccelerator_TypeOfGraphicsAccelerator">
+            <End Role="TypeOfGraphicsAccelerator" EntitySet="TypeOfGraphicsAccelerator" />
+            <End Role="GraphicsAccelerator" EntitySet="GraphicsAccelerator" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GraphicsAccelerator_TypeVideoMemory" Association="Self.FK_GraphicsAccelerator_TypeVideoMemory">
+            <End Role="TypeVideoMemory" EntitySet="TypeVideoMemory" />
+            <End Role="GraphicsAccelerator" EntitySet="GraphicsAccelerator" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Specification_GraphicsAccelerator" Association="Self.FK_Specification_GraphicsAccelerator">
+            <End Role="GraphicsAccelerator" EntitySet="GraphicsAccelerator" />
+            <End Role="Specification" EntitySet="Specification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ram_RamType" Association="Self.FK_Ram_RamType">
+            <End Role="RamType" EntitySet="RamType" />
+            <End Role="Ram" EntitySet="Ram" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Specification_Ram" Association="Self.FK_Specification_Ram">
+            <End Role="Ram" EntitySet="Ram" />
+            <End Role="Specification" EntitySet="Specification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(HGUModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(HGUModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище HGUModelContainer" CdmEntityContainer="HGUEntities1">
+          <EntitySetMapping Name="Categorys">
+            <EntityTypeMapping TypeName="HGUModel.Categorys">
+              <MappingFragment StoreEntitySet="Categorys">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Computers">
+            <EntityTypeMapping TypeName="HGUModel.Computers">
+              <MappingFragment StoreEntitySet="Computers">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id_Specification" ColumnName="id_Specification" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Office" ColumnName="Office" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cpu">
+            <EntityTypeMapping TypeName="HGUModel.Cpu">
+              <MappingFragment StoreEntitySet="Cpu">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="NumberOfCores" ColumnName="NumberOfCores" />
+                <ScalarProperty Name="CPUFrequency" ColumnName="CPUFrequency" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DataDrives">
+            <EntityTypeMapping TypeName="HGUModel.DataDrives">
+              <MappingFragment StoreEntitySet="DataDrives">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id_TypeDataDrives" ColumnName="id_TypeDataDrives" />
+                <ScalarProperty Name="VDataDrives" ColumnName="VDataDrives" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GraphicManufacturer">
+            <EntityTypeMapping TypeName="HGUModel.GraphicManufacturer">
+              <MappingFragment StoreEntitySet="GraphicManufacturer">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GraphicsAccelerator">
+            <EntityTypeMapping TypeName="HGUModel.GraphicsAccelerator">
+              <MappingFragment StoreEntitySet="GraphicsAccelerator">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="id_GraphicManufacturer" ColumnName="id_GraphicManufacturer" />
+                <ScalarProperty Name="id_TypeOfGraphicsAccelerator" ColumnName="id_TypeOfGraphicsAccelerator" />
+                <ScalarProperty Name="id_TypeVideoMemory" ColumnName="id_TypeVideoMemory" />
+                <ScalarProperty Name="VideoMemorySize" ColumnName="VideoMemorySize" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ram">
+            <EntityTypeMapping TypeName="HGUModel.Ram">
+              <MappingFragment StoreEntitySet="Ram">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="id_RamType" ColumnName="id_RamType" />
+                <ScalarProperty Name="VRam" ColumnName="VRam" />
+                <ScalarProperty Name="RAMFrequency" ColumnName="RAMFrequency" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RamType">
+            <EntityTypeMapping TypeName="HGUModel.RamType">
+              <MappingFragment StoreEntitySet="RamType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="HGUModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Specification">
+            <EntityTypeMapping TypeName="HGUModel.Specification">
+              <MappingFragment StoreEntitySet="Specification">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id_Cpu" ColumnName="id_Cpu" />
+                <ScalarProperty Name="id_Ram" ColumnName="id_Ram" />
+                <ScalarProperty Name="id_GraphicsAccelerator" ColumnName="id_GraphicsAccelerator" />
+                <ScalarProperty Name="id_DataDrives" ColumnName="id_DataDrives" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="HGUModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Type_Device">
+            <EntityTypeMapping TypeName="HGUModel.Type_Device">
+              <MappingFragment StoreEntitySet="Type_Device">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id_Category" ColumnName="id_Category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeDataDrives">
+            <EntityTypeMapping TypeName="HGUModel.TypeDataDrives">
+              <MappingFragment StoreEntitySet="TypeDataDrives">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeOfGraphicsAccelerator">
+            <EntityTypeMapping TypeName="HGUModel.TypeOfGraphicsAccelerator">
+              <MappingFragment StoreEntitySet="TypeOfGraphicsAccelerator">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeVideoMemory">
+            <EntityTypeMapping TypeName="HGUModel.TypeVideoMemory">
+              <MappingFragment StoreEntitySet="TypeVideoMemory">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="HGUModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="id_Role" ColumnName="id_Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Сonsumable">
+            <EntityTypeMapping TypeName="HGUModel.Сonsumable">
+              <MappingFragment StoreEntitySet="Сonsumable">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Money" ColumnName="Money" />
+                <ScalarProperty Name="DateBay" ColumnName="DateBay" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="id_Category" ColumnName="id_Category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище HGUModel.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище HGUModel.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище HGUModel.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище HGUModel.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HGUModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище HGUModel.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HGUModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище HGUModel.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище HGUModel.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

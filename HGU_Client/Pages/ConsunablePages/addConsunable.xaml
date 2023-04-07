@@ -1,0 +1,36 @@
+﻿<Page x:Class="HGU_Client.Pages.ConsunablePages.addConsunable"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HGU_Client.Pages.ConsunablePages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="addConsunable">
+
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Выбранный элемент"  />
+            <TextBlock Text="Наименование" />
+            <TextBox Name="txt_name"/>
+            <TextBlock Text="Серийный номер"/>
+            <TextBox Name="txt_ID"/>
+            <TextBlock Text="Описание"/>
+            <TextBox Name="txt_Description"/>
+            <TextBlock Text="Категория"/>
+            <ComboBox Name="cb_id_Category"/>
+            <TextBlock Text="Колличество"/>
+            <TextBox Name="txt_count"/>
+            <TextBlock Text="Стоимость"/>
+            <TextBox Name="txt_money"/>
+            <TextBlock Text="Дата покупки"/>
+            <DatePicker Name="dp_date"/>
+            <TextBlock Text="Примечание"/>
+            <TextBox Name="txt_note"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btn_Save" Content="Сохранить" Margin="0,5,5,5" Click="btn_Save_Click"/>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Page>

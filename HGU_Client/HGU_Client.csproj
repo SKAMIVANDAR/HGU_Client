@@ -1,0 +1,509 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{523EE225-0344-4CB2-B450-D149CAE95198}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>HGU_Client</RootNamespace>
+    <AssemblyName>HGU_Client</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Categorys.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\AppConnect.cs" />
+    <Compile Include="Computers.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cpu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataDrives.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GraphicManufacturer.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GraphicsAccelerator.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Category\addCategory.xaml.cs">
+      <DependentUpon>addCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Category\listCategory.xaml.cs">
+      <DependentUpon>listCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Category\redactCategory.xaml.cs">
+      <DependentUpon>redactCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConsunablePages\addConsunable.xaml.cs">
+      <DependentUpon>addConsunable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConsunablePages\listConsunable.xaml.cs">
+      <DependentUpon>listConsunable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConsunablePages\redactConsunable.xaml.cs">
+      <DependentUpon>redactConsunable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\CpuPages\addCpu.xaml.cs">
+      <DependentUpon>addCpu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\CpuPages\listCpu.xaml.cs">
+      <DependentUpon>listCpu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\CpuPages\redactCpu.xaml.cs">
+      <DependentUpon>redactCpu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\DataDriversPages\addDataDrives.xaml.cs">
+      <DependentUpon>addDataDrives.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\DataDriversPages\listDataDrives.xaml.cs">
+      <DependentUpon>listDataDrives.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\DataDriversPages\redactDataDrives.xaml.cs">
+      <DependentUpon>redactDataDrives.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\GraphicAccelPages\addGraphicAccel.xaml.cs">
+      <DependentUpon>addGraphicAccel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\GraphicAccelPages\listGraphicAccel.xaml.cs">
+      <DependentUpon>listGraphicAccel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\GraphicAccelPages\redactGraphicAccel.xaml.cs">
+      <DependentUpon>redactGraphicAccel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\GraphicManufacturerPages\addGraphicManufacturer.xaml.cs">
+      <DependentUpon>addGraphicManufacturer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\GraphicManufacturerPages\listGraphicManufacturer.xaml.cs">
+      <DependentUpon>listGraphicManufacturer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\GraphicManufacturerPages\redactGraphicManufacturer.xaml.cs">
+      <DependentUpon>redactGraphicManufacturer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\PCPages\addPC.xaml.cs">
+      <DependentUpon>addPC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\PCPages\listPC.xaml.cs">
+      <DependentUpon>listPC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\PCPages\redactPC.xaml.cs">
+      <DependentUpon>redactPC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\RamPages\Page2.xaml.cs">
+      <DependentUpon>Page2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\RamPages\Page3.xaml.cs">
+      <DependentUpon>Page3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\SpecPages\addSpec.xaml.cs">
+      <DependentUpon>addSpec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\SpecPages\listSpec.xaml.cs">
+      <DependentUpon>listSpec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\SpecPages\redactSpec.xaml.cs">
+      <DependentUpon>redactSpec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\TypeDataDrivesPages\addTypeDataDrives.xaml.cs">
+      <DependentUpon>addTypeDataDrives.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\TypeDataDrivesPages\listTypeDataDrives.xaml.cs">
+      <DependentUpon>listTypeDataDrives.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\TypeDataDrivesPages\redactTypeDataDrives.xaml.cs">
+      <DependentUpon>redactTypeDataDrives.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\TypeOfGraphicsAcceleratorPages\addTypeOfGraphicsAccelerator.xaml.cs">
+      <DependentUpon>addTypeOfGraphicsAccelerator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\TypeOfGraphicsAcceleratorPages\listTypeOfGraphicsAccelerator.xaml.cs">
+      <DependentUpon>listTypeOfGraphicsAccelerator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\TypeOfGraphicsAcceleratorPages\redactTypeOfGraphicsAccelerator.xaml.cs">
+      <DependentUpon>redactTypeOfGraphicsAccelerator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\TypeRamPages\aTypePage.xaml.cs">
+      <DependentUpon>aTypePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\TypeRamPages\lTypeRam.xaml.cs">
+      <DependentUpon>lTypeRam.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\TypeRamPages\rTypePage.xaml.cs">
+      <DependentUpon>rTypePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\TypeVideoMemoryPages\addTypeVideoMemory.xaml.cs">
+      <DependentUpon>addTypeVideoMemory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\TypeVideoMemoryPages\listTypeVideoMemory.xaml.cs">
+      <DependentUpon>listTypeVideoMemory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lists\TypeVideoMemoryPages\redactTypeVideoMemory.xaml.cs">
+      <DependentUpon>redactTypeVideoMemory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ram.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RamType.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Specification.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TypeDataDrives.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TypeOfGraphicsAccelerator.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TypeVideoMemory.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Type_Device.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Сonsumable.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AppFrame.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Pages\Category\addCategory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Category\listCategory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Category\redactCategory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ConsunablePages\addConsunable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ConsunablePages\listConsunable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ConsunablePages\redactConsunable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\CpuPages\addCpu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\CpuPages\listCpu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\CpuPages\redactCpu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\DataDriversPages\addDataDrives.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\DataDriversPages\listDataDrives.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\DataDriversPages\redactDataDrives.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\GraphicAccelPages\addGraphicAccel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\GraphicAccelPages\listGraphicAccel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\GraphicAccelPages\redactGraphicAccel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\GraphicManufacturerPages\addGraphicManufacturer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\GraphicManufacturerPages\listGraphicManufacturer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\GraphicManufacturerPages\redactGraphicManufacturer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\PCPages\addPC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\PCPages\listPC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\PCPages\redactPC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\RamPages\Page1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\RamPages\Page2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\RamPages\Page3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\SpecPages\addSpec.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\SpecPages\listSpec.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\SpecPages\redactSpec.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\TypeDataDrivesPages\addTypeDataDrives.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\TypeDataDrivesPages\listTypeDataDrives.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\TypeDataDrivesPages\redactTypeDataDrives.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\TypeOfGraphicsAcceleratorPages\addTypeOfGraphicsAccelerator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\TypeOfGraphicsAcceleratorPages\listTypeOfGraphicsAccelerator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\TypeOfGraphicsAcceleratorPages\redactTypeOfGraphicsAccelerator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\TypeRamPages\aTypePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\TypeRamPages\lTypeRam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\TypeRamPages\rTypePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\TypeVideoMemoryPages\addTypeVideoMemory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\TypeVideoMemoryPages\listTypeVideoMemory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lists\TypeVideoMemoryPages\redactTypeVideoMemory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Pages\Lists\RamPages\Page1.xaml.cs">
+      <DependentUpon>Page1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
